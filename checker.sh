@@ -10,13 +10,13 @@ unset WAN2_STATUS
 ACTIVE_IFACE=$(ip r g $CHECK_IP | awk '{ print $5 }')
 
 # Check WAN1
-if ping -c3 -w3 $WAN1_MONITOR_IP1 &>/dev/null && ping -c3 -w3 $WAN1_MONITOR_IP2 &>/dev/null
+if ping -c3 -w3 $WAN1_MONITOR_IP1 -I $WAN1_IFACE &>/dev/null && ping -c3 -w3 $WAN1_MONITOR_IP2 -I $WAN1_IFACE &>/dev/null
   then WAN1_STATUS=1
   else WAN1_STATUS=0 && echo "[$LOG_TIMESTAMP] $WAN1_SLUG detected offline" >> $LOG_DIR/checker.log
 fi
 
 # Check WAN2
-if ping -c3 -w3 $WAN2_MONITOR_IP1 &>/dev/null && ping -c3 -w3 $WAN2_MONITOR_IP2 &>/dev/null
+if ping -c3 -w3 $WAN2_MONITOR_IP1 -I $WAN2_IFACE &>/dev/null && ping -c3 -w3 $WAN2_MONITOR_IP2 -I $WAN2_IFACE &>/dev/null
   then WAN2_STATUS=1
   else WAN2_STATUS=0 && echo "[$LOG_TIMESTAMP] $WAN2_SLUG detected offline" >> $LOG_DIR/checker.log
 fi
