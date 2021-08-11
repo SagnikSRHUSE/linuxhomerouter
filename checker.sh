@@ -9,6 +9,9 @@ unset WAN2_STATUS
 # Check active interface
 ACTIVE_IFACE=$(ip r g $CHECK_IP | awk '{ print $5 }')
 
+# Make sure routes are set (in case routes get deleted after a PPPoE dies)
+/bin/bash ./initroutes.sh &>/dev/null
+
 # Check WAN1
 if ping -c3 -w3 $WAN1_MONITOR_IP1 -I $WAN1_IFACE &>/dev/null && ping -c3 -w3 $WAN1_MONITOR_IP2 -I $WAN1_IFACE &>/dev/null
   then WAN1_STATUS=1
