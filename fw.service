@@ -1,0 +1,7 @@
+[Unit]
+Description=Initialize firewall and monitor interfaces
+
+[Service]
+Type=oneshot
+WorkingDirectory=/opt/fwscripts
+ExecStart=/bin/bash /opt/fwscripts/run.sh
