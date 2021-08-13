@@ -1,0 +1,11 @@
+[Unit]
+Description=Initialize firewall and monitor interfaces
+
+[Timer]
+OnBootSec=5s
+AccuracySec=1us
+OnUnitActiveSec=1s
+Unit=fw.service
+
+[Install]
+WantedBy=multi-user.target
