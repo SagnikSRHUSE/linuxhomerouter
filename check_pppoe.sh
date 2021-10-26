@@ -9,7 +9,7 @@ for iface in $PPPOE_INTERFACES; do
 done
 
 if [ -f $PPPOE_CHECK_FILE ]
-  then echo "PPPoE already being reestablished" >> $LOG_DIR/checker.log && exit 0
+  then echo "PPPoE already being reestablished" >> $LOG_DIR/checker.log && sleep 5 && exit 0
 fi
 
 touch /tmp/check_pppoe
