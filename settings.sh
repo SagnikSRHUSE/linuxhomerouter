@@ -43,7 +43,6 @@ CHECK_IP="208.67.222.222"
 # Misc vars
 WKG_DIR="/opt/fwscripts"
 LB_ENABLE=0
-PPPOE_CHECK_FILE="/tmp/check_pppoe"
 
 # Log vars
 LOG_DIR="/var/log/fw"

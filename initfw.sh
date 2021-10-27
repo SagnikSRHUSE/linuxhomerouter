@@ -47,4 +47,6 @@ iptables -A FORWARD -i $WAN2_IFACE -o $LAN_IFACE -m conntrack --ctstate ESTABLIS
 iptables -t nat -A POSTROUTING -o $WAN1_IFACE -j MASQUERADE
 iptables -t nat -A POSTROUTING -o $WAN2_IFACE -j MASQUERADE
 
+source ./addlfwrules.sh
+
 exit 0
